@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.fedordich.beatbox",
+    "sha256_cert_fingerprints": ["0C:88:1F:22:41:19:96:FE:23:35:3F:9E:2B:E4:CF:6B:A9:FE:BB:01:64:20:3A:F9:12:EE:EB:A8:9C:1B:56:B9"]
+  }
+}]
