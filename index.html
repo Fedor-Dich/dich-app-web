@@ -2,18 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>BeatBox Share</title>
+    <title>PocketGroove Share</title>
+    
+    <!-- Эти теги гарантируют правильное отображение в Telegram/WhatsApp -->
+    <meta property="og:title" content="PocketGroove Share" />
+    <meta property="og:description" content="Послушай мой бит в PocketGroove!" />
+    <meta property="og:type" content="website" />
 </head>
 <body>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const data = urlParams.get('data');
         if (data) {
-            // Если App Links вдруг не сработал мгновенно, 
-            // этот скрипт принудительно вызовет приложение через протокол
-            window.location.href = "beatbox://share?data=" + data;
+            window.location.href = "pocketgroove://share?data=" + data;
         }
     </script>
-    <p>Загрузка бита в BeatBox...</p>
+    <p>Загрузка бита в PocketGroove...</p>
 </body>
 </html>
