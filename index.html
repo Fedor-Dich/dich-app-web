@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PocketGroove Beat</title>    <style>
+    <title>PocketGroove Beat</title>
+    <style>
         body {
-            background-color: #1E1F22; /* Ваша темная тема */
+            background-color: #121212;
             color: white;
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -16,33 +17,71 @@
             margin: 0;
             text-align: center;
         }
-        .container { padding: 20px; }
+        .container { padding: 30px; }
+        h1 { color: #00E676; margin-bottom: 15px; font-size: 2.5em; }
+        p { font-size: 1.2em; line-height: 1.6; max-width: 500px; color: #E0E0E0; }
         .btn {
-            background-color: #B4FF9A; /* Зеленый акцент */
+            background-color: #00E676;
             color: black;
-            padding: 15px 30px;
-            border-radius: 25px;
+            padding: 16px 35px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 30px;
             display: inline-block;
+            transition: transform 0.2s, background-color 0.2s;
         }
+        .btn:active { transform: scale(0.95); }
+        .btn:hover { background-color: #00c864; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 id="title">PocketGroove</h1>
-        <p id="message">You've been sent a beat! Install the app to open it.</p>
+        <p id="message">You've been sent a beat in PocketGroove! To open it, install the app and then click the link again.</p>
         <a id="btn" href="https://play.google.com/store/apps/details?id=com.fedordich.pocketgroove" class="btn">Download App</a>
     </div>
 
     <script>
-        // Простая локализация
-        const userLang = navigator.language || navigator.userLanguage; 
-        if (userLang.startsWith('ru')) {
-            document.getElementById('title').innerText = 'PocketGroove';
-            document.getElementById('message').innerText = 'Вам прислали бит! Установите PocketGroove, чтобы открыть его. После установки нажмите на ссылку еще раз.';
-            document.getElementById('btn').innerText = 'Скачать в Google Play';
+        const translations = {
+            'ru': {
+                message: 'Вам прислали бит в PocketGroove! Чтобы его открыть, установите приложение и затем нажмите на ссылку еще раз.',
+                btn: 'Скачать в Google Play'
+            },
+            'de': {
+                message: 'Dir wurde ein Beat in PocketGroove gesendet! Um ihn zu öffnen, installiere die App und klicke dann erneut auf den Link.',
+                btn: 'Im Google Play Store herunterladen'
+            },
+            'es': {
+                message: '¡Te han enviado un beat en PocketGroove! Para abrirlo, instala la aplicación y luego haz clic en el enlace de nuevo.',
+                btn: 'Descargar en Google Play'
+            },
+            'fr': {
+                message: 'On vous a envoyé un beat dans PocketGroove ! Pour l\'ouvrir, installez l\'application puis cliquez à nouveau sur le lien.',
+                btn: 'Télécharger sur Google Play'
+            },
+            'hi': {
+                message: 'आपको PocketGroove में एक बीट भेजी गई है! इसे खोलने के लिए, ऐप इंस्टॉल करें और फिर लिंक पर फिर से क्लिक करें।',
+                btn: 'Google Play से डाउनलोड करें'
+            },
+            'it': {
+                message: 'Ti è stato inviato un beat in PocketGroove! Per aprirlo, installa l\'app e poi clicca di nuovo sul link.',
+                btn: 'Scarica su Google Play'
+            },
+            'pt': {
+                message: 'Enviaram-te um beat no PocketGroove! Para o abrires, instala a aplicação e clica novamente no link.',
+                btn: 'Descarregar no Google Play'
+            },
+            'zh': {
+                message: '有人在 PocketGroove 中给你发了一个节奏！要打开它，请安装该应用，然后再次点击链接。',
+                btn: '在 Google Play 下载'
+            }
+        };
+
+        const userLang = navigator.language.split('-')[0]; 
+        if (translations[userLang]) {
+            document.getElementById('message').innerText = translations[userLang].message;
+            document.getElementById('btn').innerText = translations[userLang].btn;
         }
     </script>
 </body>
