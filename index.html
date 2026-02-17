@@ -39,7 +39,17 @@
             font-weight: bold;
             margin-top: 30px; /* Четкое отделение кнопки */
             display: inline-block;
+            /* Убираем синюю рамку при нажатии в мобильных браузерах */
+        -webkit-tap-highlight-color: transparent;
+        
+        /* Плавный переход для эффекта нажатия */
+        transition: transform 0.1s, background-color 0.1s;
         }
+        /* Эффект при нажатии (вставляем сразу после .btn) */
+    .btn:active {
+        transform: scale(0.96); /* Кнопка слегка уменьшается */
+        background-color: #00c864; /* Цвет становится чуть темнее */
+    }
     </style>
 </head>
 <body>
