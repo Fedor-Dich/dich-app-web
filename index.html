@@ -1,25 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>PocketGroove Share</title>
-    
-    <!-- Эти теги гарантируют правильное отображение в Telegram/WhatsApp -->
-    <meta property="og:title" content="PocketGroove Share" />
-    <meta property="og:description" content="Послушай мой бит в PocketGroove!" />
-    <meta property="og:type" content="website" />
-</head>
-<body>
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const data = urlParams.get('data');
-        if (data) {
-            window.location.href = "pocketgroove://share?data=" + data;
-        }
-    </script>
-    <p>Загрузка бита в PocketGroove...</p>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +41,7 @@
         const userLang = navigator.language || navigator.userLanguage; 
         if (userLang.startsWith('ru')) {
             document.getElementById('title').innerText = 'PocketGroove';
-            document.getElementById('message').innerText = 'Вам прислали бит! Установите приложение, чтобы открыть его.';
+            document.getElementById('message').innerText = 'Вам прислали бит! Установите PocketGroove, чтобы открыть его. После установки просто нажмите на ссылку еще раз.';
             document.getElementById('btn').innerText = 'Скачать в Google Play';
         }
     </script>
