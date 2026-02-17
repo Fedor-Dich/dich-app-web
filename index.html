@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PocketGroove Beat</title>    <style>
         body {
-            background-color: #121212; /* Ваша темная тема */
+            background-color: #1E1F22; /* Ваша темная тема */
             color: white;
             font-family: sans-serif;
             display: flex;
@@ -18,7 +18,7 @@
         }
         .container { padding: 20px; }
         .btn {
-            background-color: #00E676; /* Зеленый акцент */
+            background-color: #006E00; /* Зеленый акцент */
             color: black;
             padding: 15px 30px;
             border-radius: 25px;
@@ -41,7 +41,7 @@
         const userLang = navigator.language || navigator.userLanguage; 
         if (userLang.startsWith('ru')) {
             document.getElementById('title').innerText = 'PocketGroove';
-            document.getElementById('message').innerText = 'Вам прислали бит! Установите PocketGroove, чтобы открыть его. После установки просто нажмите на ссылку еще раз.';
+            document.getElementById('message').innerText = 'Вам прислали бит! Установите PocketGroove, чтобы открыть его. После установки нажмите на ссылку еще раз.';
             document.getElementById('btn').innerText = 'Скачать в Google Play';
         }
     </script>
