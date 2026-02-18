@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketGroove Beat</title>
+    <style>
+        body {
+            background-color: #1E1F22;
+            color: #CED0D6;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container { 
+            padding: 20px; 
+            max-width: 500px;
+        }
+        h1 { 
+            font-size: 2.5em; 
+            margin-bottom: 25px; 
+        }
+        p { 
+            font-size: 1.1em; 
+            line-height: 1.2; 
+            margin: 0;
+            color: #BCBEC4;
+        }
+        .btn {
+            background-color: #B4FF9A;
+            color: #313436;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            display: inline-block;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.1s, background-color 0.1s;
+        }
+        .btn:active {
+            transform: scale(0.96);
+            background-color: #8CFF66;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">PocketGroove</h1>
+        <p id="message">You've been sent a beat in PocketGroove! To open it, install the app and then follow the link again.</p>
+        <a id="btn" href="https://play.google.com/store/apps/details?id=com.fedordich.pocketgroove" class="btn">Download App</a>
+    </div>
+
+    <script>
+       const path = window.location.pathname;
+
+    // Если в пути НЕТ PocketGroove, отправляем на главную страницу разработчика
+    if (!path.includes('pocketgroove')) {
+        window.location.href = 'https://dich-app.com/';
+    }
+
+        const translations = {
+            'ru': {
+                message: 'Вам прислали бит в PocketGroove! Чтобы его открыть, установите приложение, а затем снова перейдите по ссылке.',
+                btn: 'Скачать в Google Play'
+            },
+            'de': {
+                message: 'Dir wurde ein Beat in PocketGroove gesendet! Um ihn zu öffnen, installiere die App und folge dann erneut dem Link.',
+                btn: 'Im Google Play Store herunterladen'
+            },
+            'es': {
+                message: '¡Te han enviado un beat en PocketGroove! Para abrirlo, instala la aplicación y luego vuelve a seguir el enlace.',
+                btn: 'Descargar en Google Play'
+            },
+            'fr': {
+                message: 'On vous a envoyé un beat dans PocketGroove ! Pour l\'ouvrir, installez l\'application puis suivez à nouveau le lien.',
+                btn: 'Télécharger sur Google Play'
+            },
+            'hi': {
+                message: 'आपको PocketGroove में एक बीट भेजी गई है! इसे खोलने के लिए, ऐप इंस्टॉल करें और फिर से लिंक पर जाएं।',
+                btn: 'Google Play से डाउनलोड करें'
+            },
+            'it': {
+                message: 'Ti è stato inviato un beat in PocketGroove! Per aprirlo, installa l\'app e poi segui di nuovo il link.',
+                btn: 'Scarica su Google Play'
+            },
+            'pt': {
+                message: 'Enviaram-te um beat no PocketGroove! Para o abrires, instala a aplicação e depois volta a aceder ao link.',
+                btn: 'Descarregar no Google Play'
+            },
+            'zh': {
+                message: '有人在 PocketGroove 中给你发了一个节奏！要打开它，请安装该应用，然后再次访问链接。',
+                btn: '在 Google Play 下载'
+            }
+        };
+
+        const userLang = navigator.language.split('-')[0]; 
+        if (translations[userLang]) {
+            document.getElementById('message').innerText = translations[userLang].message;
+            document.getElementById('btn').innerText = translations[userLang].btn;
+        }
+    </script>
+</body>
+</html>
