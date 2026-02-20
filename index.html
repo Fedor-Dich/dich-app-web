@@ -3,47 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dich-App Development</title>
+    <title>dich-app studio</title>
     <style>
+        /* Общие стили для страницы */
         body {
             background-color: #1E1F22;
             color: #CED0D6;
-            font-family: sans-serif;
-            display: flex;
-            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
+            display: flex;
+            flex-direction: column; /* Располагаем элементы вертикально */
+            height: 100vh; /* Занимаем всю высоту экрана */
         }
-        h1 { font-size: 2em; margin: 0; }
-        p { color: #B4FF9A; font-size: 1.2em; margin-top: 10px; }
+
+        /* Основной контент (центр) */
+        main {
+            flex-grow: 1; /* Занимает все доступное пространство, толкая футер вниз */
+            display: flex;
+            align-items: center; /* Выравнивание по вертикали */
+            justify-content: center; /* Выравнивание по горизонтали */
+            text-align: center;
+        }
+        
+        /* Заголовок "dich-app studio" */
+        h1 {
+            font-size: 3em; /* Сделаем основной заголовок крупнее */
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        /* Подзаголовок "Mobile application development" */
+        p {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-top: 10px;
+            color: #CED0D6; /* Устанавливаем одинаковый цвет */
+        }
+
+        /* Футер (подвал) для почты */
+        footer {
+            width: 100%;
+            padding: 20px 0; /* Отступы сверху и снизу */
+            text-align: center;
+        }
+
+        /* Ссылка на почту */
+        footer a {
+            color: #a0a2a8; /* Слегка приглушенный цвет для почты */
+            text-decoration: none; /* Убираем подчеркивание */
+            font-size: 0.9em;
+            transition: color 0.2s; /* Плавное изменение цвета при наведении */
+        }
+        
+        footer a:hover {
+            color: #CED0D6; /* При наведении делаем ярче */
+        }
     </style>
 </head>
 <body>
-    <div>
-        <h1>dich-app.com</h1>
-        <p id="dev-text">Разработка мобильных приложений<br>Mobile application development</p>
-    </div>
 
-    <script>
-        const translations = {
-            'ru': 'Разработка мобильных приложений',
-            'de': 'Entwicklung von mobilen Anwendungen',
-            'es': 'Desarrollo de aplicaciones móviles',
-            'fr': 'Développement d\'applications mobiles',
-            'hi': 'मोबाइल एप्लिकेशन विकास',
-            'it': 'Sviluppo di applicazioni mobili',
-            'pt': 'Desenvolvimento de aplicações móveis',
-            'zh': '移动应用开发'
-        };
+    <!-- Основной контент, который будет по центру -->
+    <main>
+        <div>
+            <h1>DichApp Studio</h1>
+            <p>Mobile application development</p>
+        </div>
+    </main>
 
-        const userLang = navigator.language.split('-')[0];
-        const textElement = document.getElementById('dev-text');
-        
-        if (translations[userLang]) {
-            textElement.innerHTML = `${translations[userLang]}<br>Mobile application development`;
-        }
-    </script>
+    <!-- Футер с контактной информацией -->
+    <footer>
+        <a href="mailto:support@dich-app.com">support@dich-app.com</a>
+    </footer>
+
 </body>
 </html>
