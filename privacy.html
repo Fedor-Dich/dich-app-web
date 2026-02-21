@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - DichApp Studio</title>
     <style>
-        /* Общие стили как в index.html */
         body { 
             background-color: #1E1F22; 
-            color: #CED0D6; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #CED0D6;font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6; 
             padding: 40px; 
             max-width: 800px; 
@@ -19,30 +17,31 @@
         h1 { color: #ffffff; font-size: 2.2em; font-weight: 600; }
         h2 { color: #ffffff; margin-top: 30px; font-weight: 600; }
         
-        /* Стили ссылок (унифицированы с футером index.html) */
-        a { 
-            color: #5B9BD5; 
-            text-decoration: none; 
-            font-size: 1em; /* В тексте политики чуть крупнее, чем в футере */
-            transition: color 0.2s; 
-            -webkit-tap-highlight-color: transparent; 
-        }
+       /* Ссылки в тексте (будут по умолчанию размера текста строки) */
+a { 
+    color: #5B9BD5; 
+    text-decoration: none; 
+    /* font-size убрали отсюда, теперь он 1em по умолчанию */
+    transition: color 0.2s; 
+    -webkit-tap-highlight-color: transparent; 
+}
 
-        a:hover, a:active { 
-            color: #82B1FF; 
-        }
+a:hover, a:active { 
+    color: #82B1FF;
+    text-decoration: underline; 
+}
 
-        .footer { 
-            margin-top: 50px; 
-            font-size: 0.9em; 
-            color: #a0a2a8; 
-            text-align: left; /* В политике лучше оставить выравнивание по левому краю */
-        }
+/* А вот здесь уменьшаем размер только для ссылки в футере */
+.footer { 
+    margin-top: 50px; 
+    color: #a0a2a8; 
+    text-align: left; 
+    font-size: 0.9em; /* Уменьшаем весь текст футера сразу */
+}
 
-        /* Специальное оформление для ссылки в футере */
-        .footer a {
-            text-decoration: underline;
-        }
+.footer a {
+    font-size: 1em; /* Внутри футера ссылка будет 100% от размера футера (т.е. те же 0.9em) */
+}
     </style>
 </head>
 <body>
