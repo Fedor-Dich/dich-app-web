@@ -42,7 +42,57 @@
             color: #CED0D6; /* Устанавливаем одинаковый цвет */
         }
 
-        /* Футер (подвал) для почты */
+
+/* Блок приложений на главной */
+.apps-container {
+    margin-top:40px;
+    display: flex;
+    justify-content: center;
+}
+
+.app-card {
+    background: #2B2D31; /* Чуть светлее фона */
+    padding: 20px;
+    border-radius: 16px;
+    width: 280px;
+    text-align: left;
+    transition: transform 0.2s;
+    border: 1px solid #313338;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    border-color: #5B9BD5;
+}
+
+.app-name {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.app-desc {
+    font-size: 0.95em;
+    color: #BCBEC4;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.btn-more {
+    display: inline-block;
+    color: #5B9BD5;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-more:hover {
+    text-decoration: underline;
+}
+      
+          /* Футер (подвал) для почты */
         footer {
             width: 100%;
             padding: 20px 0; /* Отступы сверху и снизу */
@@ -77,6 +127,16 @@ footer a:hover, footer a:active {
         <div>
             <h1>DichApp Studio</h1>
             <p>Mobile application development</p>
+ <!-- Блок с приложением -->
+        <div class="apps-container">
+            <div class="app-card">
+                <div class="app-name">PocketGroove</div>
+                <div class="app-desc">Create, share, and collaborate on beats anywhere with a mobile sequencer designed for musicians.</div>
+                <a href="pocketgroove.html" class="btn-more">Learn more →</a>
+            </div>
+        </div>
+
+          
         </div>
     </main>
 
