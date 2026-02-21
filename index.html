@@ -48,15 +48,22 @@
         }
 
         /* Ссылка на почту */
-        footer a {
-            color: #a0a2a8; /* Слегка приглушенный цвет для почты */
-            text-decoration: none; /* Убираем подчеркивание */
-            font-size: 0.9em;
-            transition: color 0.2s; /* Плавное изменение цвета при наведении */
-        }
-        
-        footer a:hover {
-            color: #CED0D6; /* При наведении делаем ярче */
+       footer a {
+        color: #a0a2a8;
+        text-decoration: none;
+        font-size: 0.9em;
+        transition: color 0.2s;        /* Ключевая строка против "закрашивания" фона */
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    footer a:hover, footer a:active {
+        color: #CED0D6; /* Цвет при наведении и в момент нажатия */
+    }
+
+    /* Добавим стили для Privacy Policy, чтобы она наследовала поведение */
+    footer a:last-child {
+        margin-left: 0; /* Убираем лишние отступы, если они были в инлайне */
+    }color: #CED0D6; /* При наведении делаем ярче */
         }
     </style>
 </head>
