@@ -64,6 +64,36 @@
             background-color: #8CFF66;
         }
 
+
+
+        .btn {
+    background-color: transparent;    /* Увеличил толщину до 2px для солидности */
+    border: 2px solid #5B9BD5; 
+    color: #5B9BD5;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+            margin-top: 35px;
+    font-size: 1.1em;
+    display: inline-block;
+    /* Добавляем border-color в транзицию для плавности */
+    transition: transform 0.1s, background-color 0.1s, border-color 0.1s;
+    -webkit-tap-highlight-color: transparent;
+    /* Чтобы рамка не увеличивала физический размер кнопки */
+    box-sizing: border-box; 
+}
+
+.btn:active {
+    transform: scale(0.96);
+    /* Цвет фона при нажатии */
+    background-color: #4A82B5; 
+    /* Цвет рамки становится таким же, как фон, чтобы она "исчезла" */
+    border-color: #4A82B5;     
+    /* Цвет текста при нажатии */
+    color: #CED0D6;            
+}
+
         /* Футер с копирайтом */
         footer {
             width: 100%;
