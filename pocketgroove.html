@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketGroove - DichApp Studio</title>
+    <!-- Подключаем тот же шрифт Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1E1F22;
+            color: #CED0D6;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        h1 { font-size: 3em; color: #ffffff; margin-bottom: 10px; }
+        .tagline { font-size: 1.2em; color: #5B9BD5; margin-bottom: 40px; }
+        
+        .description {
+            text-align: left;
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #BCBEC4;
+            margin-bottom: 50px;
+        }
+
+        /* Кнопка Google Play */
+        .play-store-btn {
+            background-color: #B4FF9A;
+            color: #1E1F22;
+            padding: 18px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            display: inline-block;
+            transition: transform 0.1s, background-color 0.1s;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .play-store-btn:active {
+            transform: scale(0.96);
+            background-color: #8CFF66;
+        }
+
+        footer {
+            padding: 40px 0 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #a0a2a8;
+        }
+
+        footer a {
+            color: #5B9BD5;
+            text-decoration: none;
+            transition: color 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        footer a:hover { text-decoration: underline; color: #82B1FF; }
+    </style>
+</head>
+<body>
+
+<main>
+    <h1>PocketGroove</h1>
+    <div class="tagline">Mobile Beatmaking & Collaboration</div>
+
+    <div class="description">
+        <p>PocketGroove is a powerful mobile sequencer that turns your phone into a portable music studio. Designed for simplicity and speed, it allows you to compose beats, experiment with sounds, and share your musical ideas instantly with friends or collaborators.</p>
+        <p>Whether you are a professional producer or just starting your musical journey, PocketGroove provides the tools you need to stay creative on the go.</p>
+    </div>
+
+    <a href="https://play.google.com/store/apps/details?id=com.fedordich.pocketgroove" class="play-store-btn">
+        Get it on Google Play
+    </a>
+</main>
+
+<footer>
+    &copy; 2026 <a href="index.html">DichApp Studio</a>. All rights reserved.
+</footer>
+
+</body>
+</html>
