@@ -5,64 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PocketGroove Beat</title>
     <style>
+        /* Общие стили для консистентности */
         body {
             background-color: #1E1F22;
             color: #CED0D6;
-            font-family: sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
             height: 100vh;
             margin: 0;
             text-align: center;
         }
+
+        /* Центральный блок */
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .container { 
             padding: 20px; 
             max-width: 500px;
         }
+
         h1 { 
             font-size: 2.5em; 
             margin-bottom: 25px; 
+            font-weight: 600;
         }
+
         p { 
             font-size: 1.1em; 
-            line-height: 1.2; 
+            line-height: 1.4; 
             margin: 0;
             color: #BCBEC4;
         }
+
+        /* Кнопка Google Play */
         .btn {
             background-color: #B4FF9A;
-            color: #313436;
+            color: #1E1F22;
             padding: 15px 30px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 30px;
+            margin-top: 35px;
             display: inline-block;
             -webkit-tap-highlight-color: transparent;
             transition: transform 0.1s, background-color 0.1s;
         }
+
         .btn:active {
             transform: scale(0.96);
             background-color: #8CFF66;
         }
+
+        /* Футер с копирайтом */
+        footer {
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #5B9BD5; /* Ваш выбранный синий */
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        footer a:hover, footer a:active {
+            color: #82B1FF; /* Светло-синий при наведении */
+            text-decoration: underline;
+        }
+
+        .copyright {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 id="title">PocketGroove</h1>
-        <p id="message">You've been sent a beat in PocketGroove! To open it, install the app and then follow the link again.</p>
-        <a id="btn" href="https://play.google.com/store/apps/details?id=com.fedordich.pocketgroove" class="btn">Download App</a>
-    </div>
+
+    <main>
+        <div class="container">
+            <h1 id="title">PocketGroove</h1>
+            <p id="message">You've been sent a beat in PocketGroove! To open it, install the app and then follow the link again.</p>
+            <a id="btn" href="https://play.google.com/store/apps/details?id=com.fedordich.pocketgroove" class="btn">Download App</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="copyright">
+            &copy; 2026 <a href="https://dich-app.com/">DichApp Studio</a>. All rights reserved.
+        </div>
+    </footer>
 
     <script>
-       const path = window.location.pathname;
+        const path = window.location.pathname;
 
-    // Если в пути НЕТ PocketGroove, отправляем на главную страницу разработчика
-    if (!path.includes('pocketgroove')) {
-        window.location.href = 'https://dich-app.com/';
-    }
+        // Если в пути НЕТ PocketGroove, отправляем на главную страницу разработчика
+        if (!path.includes('pocketgroove')) {
+            window.location.href = 'https://dich-app.com/';
+        }
 
         const translations = {
             'ru': {
@@ -86,7 +135,7 @@
                 btn: 'Google Play से डाउनलोड करें'
             },
             'it': {
-                message: 'Ti è stato inviato un beat in PocketGroove! Per aprirlo, installa l\'app e poi segui di nuovo il link.',
+                message: 'Ti è stato inviato un beat in PocketGroove! Per aprито, installa l\'app e poi segui di nuovo il link.',
                 btn: 'Scarica su Google Play'
             },
             'pt': {
