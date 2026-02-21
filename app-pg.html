@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PocketGroove - DichApp Studio</title>
-    <!-- Подключаем тот же шрифт Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -19,24 +18,32 @@
 
         main {
             flex-grow: 1;
-            max-width: 800px;
+            max-width: 700px; /* Немного сузил для лучшей читаемости */
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 20px;
             text-align: center;
         }
 
         h1 { font-size: 3em; color: #ffffff; margin-bottom: 10px; }
-        .tagline { font-size: 1.2em; color: #ffffff; margin-bottom: 40px; }
+        .tagline { font-size: 1.2em; color: #5B9BD5; margin-bottom: 40px; }
         
         .description {
-            text-align: left;
-            line-height: 1.6;
+            /* 1. Выравнивание по ширине */
+            text-align: justify;
+            line-height: 1.7;
             font-size: 1.1em;
             color: #BCBEC4;
             margin-bottom: 50px;
+            /* Убираем переносы слов, чтобы justify выглядел аккуратно */
+            hyphens: auto; 
         }
 
-        /* Кнопка Google Play */
+        .description p {
+            /* 2. Красная строка (абзацный отступ) */
+            text-indent: 30px;
+            margin-bottom: 15px;
+        }
+
         .play-store-btn {
             background-color: #B4FF9A;
             color: #1E1F22;
@@ -80,7 +87,7 @@
 
     <div class="description">
         <p>PocketGroove is a powerful mobile sequencer that turns your phone into a portable music studio. Designed for simplicity and speed, it allows you to compose beats, experiment with sounds, and share your musical ideas instantly with friends or collaborators.</p>
-        <p>Whether you are a professional producer or just starting your musical journey, PocketGroove provides the tools you need to stay creative on the go.</p>
+        <p>Whether you are a professional producer or just starting your musical journey, PocketGroove provides the tools you need to stay creative on the go. The intuitive interface ensures that nothing stands between your inspiration and the final track.</p>
     </div>
 
     <a href="https://play.google.com/store/apps/details?id=com.fedordich.pocketgroove" class="play-store-btn">
@@ -89,7 +96,9 @@
 </main>
 
 <footer>
-    &copy; 2026 <a href="index.html">DichApp Studio</a>. All rights reserved.
+    <div class="copyright">
+        &copy; 2026 <a href="index.html">DichApp Studio</a>. All rights reserved.
+    </div>
 </footer>
 
 </body>
