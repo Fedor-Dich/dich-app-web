@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PocketGroove - DichApp Studio</title>
-    
-    <!-- Подключаем шрифт Inter для единообразия на всех устройствах -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
     <style>
-        /* Общие стили страницы */
         body {
             background-color: #1E1F22;
             color: #CED0D6;
@@ -19,56 +16,34 @@
             min-height: 100vh;
         }
 
-        /* Контейнер контента */
         main {
             flex-grow: 1;
-            max-width: 700px; /* Оптимальная ширина для чтения текста */
-            margin: 0 auto;   /* Центрирование контейнера на странице */
-            padding: 60px 20px;
+            max-width: 700px; /* Немного сузил для лучшей читаемости */
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
         }
 
-        /* Заголовки строго по центру */
-        h1 { 
-            font-size: 3em; 
-            color: #CED0D6; 
-            margin: 0 0 10px 0; 
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .tagline { 
-            font-size: 1.2em; 
-            color: #CED0D6; 
-            margin-bottom: 50px; 
-            text-align: center;
-            font-weight: 300;
-        }
+        h1 { font-size: 3em; color: #CED0D6; margin-bottom: 10px; }
+        .tagline { font-size: 1.2em; color: #CED0D6; margin-bottom: 40px; }
         
-        /* Блок описания: выравнивание по ширине */
         .description {
+            /* 1. Выравнивание по ширине */
             text-align: justify;
-            line-height: 1.8;
+            line-height: 1.7;
             font-size: 1.1em;
             color: #BCBEC4;
-            margin-bottom: 60px;
-            /* Включаем автоматические переносы для аккуратного justify на мобильных */
-            hyphens: auto;
-            -webkit-hyphens: auto;
+            margin-bottom: 50px;
+            /* Убираем переносы слов, чтобы justify выглядел аккуратно */
+            hyphens: auto; 
         }
 
-        /* Абзацы с красной строкой */
         .description p {
-            text-indent: 40px; /* Отступ первой строки */
-            margin: 0 0 20px 0;
+            /* 2. Красная строка (абзацный отступ) */
+            text-indent: 30px;
+            margin-bottom: 15px;
         }
 
-        /* Обертка для центрирования кнопки (чтобы justify текста на неё не влиял) */
-        .btn-container {
-            text-align: center;
-            width: 100%;
-        }
-
-        /* Кнопка Google Play */
         .play-store-btn {
             background-color: #B4FF9A;
             color: #1E1F22;
@@ -87,17 +62,11 @@
             background-color: #8CFF66;
         }
 
-        /* Футер */
         footer {
-            width: 100%;
-            padding: 40px 0 25px;
+            padding: 40px 0 20px;
             text-align: center;
-            margin-top: auto;
-        }
-
-        .copyright {
-            color: #a0a2a8;
             font-size: 0.9em;
+            color: #a0a2a8;
         }
 
         footer a {
@@ -107,35 +76,30 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        footer a:hover, footer a:active {
-            color: #82B1FF;
-            text-decoration: underline;
-        }
+        footer a:hover { text-decoration: underline; color: #82B1FF; }
     </style>
 </head>
 <body>
 
-    <main>
-        <h1>PocketGroove</h1>
-        <div class="tagline">Mobile Beatmaking & Collaboration</div>
+<main>
+    <h1>PocketGroove</h1>
+    <div class="tagline">Mobile Beatmaking & Collaboration</div>
 
-        <div class="description">
-            <p>PocketGroove is a powerful mobile sequencer that turns your phone into a portable music studio. Designed for simplicity and speed, it allows you to compose beats, experiment with sounds, and share your musical ideas instantly with friends or collaborators.</p>
-            <p>Whether you are a professional producer or just starting your musical journey, PocketGroove provides the tools you need to stay creative on the go. The intuitive interface ensures that nothing stands between your inspiration and the final track, making music production accessible to everyone, everywhere.</p>
-        </div>
+    <div class="description">
+        <p>PocketGroove is a powerful mobile sequencer that turns your phone into a portable music studio. Designed for simplicity and speed, it allows you to compose beats, experiment with sounds, and share your musical ideas instantly with friends or collaborators.</p>
+        <p>Whether you are a professional producer or just starting your musical journey, PocketGroove provides the tools you need to stay creative on the go. The intuitive interface ensures that nothing stands between your inspiration and the final track.</p>
+    </div>
 
-        <div class="btn-container">
-            <a href="https://play.google.com/store/apps/details?id=com.fedordich.pocketgroove" class="play-store-btn">
-                Get it on Google Play
-            </a>
-        </div>
-    </main>
+    <a href="https://play.google.com/store/apps/details?id=com.fedordich.pocketgroove" class="play-store-btn">
+        Get it on Google Play
+    </a>
+</main>
 
-    <footer>
-        <div class="copyright">
-            &copy; 2026 <a href="index.html">DichApp Studio</a>. All rights reserved.
-        </div>
-    </footer>
+<footer>
+    <div class="copyright">
+        &copy; 2026 <a href="index.html">DichApp Studio</a>. All rights reserved.
+    </div>
+</footer>
 
 </body>
 </html>
