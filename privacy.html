@@ -14,7 +14,7 @@
             color: #CED0D6;
             font-family: 'Inter', sans-serif;
             line-height: 1.6; 
-            padding: 40px 20px; /* Немного уменьшил боковые отступы для мобильных */
+            padding: 40px 20px;
             max-width: 800px; 
             margin: 0 auto; 
         }
@@ -22,21 +22,18 @@
         h1 { color: #CED0D6; font-size: 2.2em; font-weight: 600; margin-bottom: 20px; }
         h2 { color: #CED0D6; margin-top: 35px; font-weight: 600; font-size: 1.5em; }
         
-        /* Стилизация абзацев: выравнивание и красная строка */
+        /* Выравнивание по левому краю без красной строки */
         p {
-            text-align: justify;
-            text-indent: 30px; /* Красная строка */
+            text-align: left;
+            text-indent: 0;
             margin-bottom: 15px;
-            hyphens: auto; /* Защита от "дыр" (переносы слов) */
-            -webkit-hyphens: auto;
         }
 
-        /* Исключение для заголовка даты обновления, чтобы он не имел отступа */
         .last-updated {
-            text-indent: 0;
             font-style: italic;
             font-size: 0.9em;
             color: #a0a2a8;
+            margin-bottom: 30px;
         }
 
         /* Ссылки */
@@ -58,41 +55,82 @@
             color: #a0a2a8; 
             text-align: left; 
             font-size: 0.9em;
-            border-top: 1px solid #313338; /* Разделительная линия */
+            border-top: 1px solid #313338; 
             padding-top: 20px;
         }
 
-        .footer a {
-            font-size: 1em;
-        }
+        /* Скрытие до применения языка */
+        [data-lang] { display: none; }
     </style>
 </head>
 <body>
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: February 20, 2026</p>
 
-    <p>At <strong>DichApp Studio</strong>, we prioritize your privacy. This Privacy Policy describes how we handle information in our mobile applications.</p>
+    <!-- Русская локаль -->
+    <div data-lang="ru">
+        <h1>Политика конфиденциальности</h1>
+        <p class="last-updated">Последнее обновление: 20 февраля 2026 г.</p>
 
-    <h2>1. Data Collection</h2>
-    <p>Our applications <strong>do not collect, store, or transmit</strong> any personal data, usage statistics, or device information. We do not use any third-party SDKs that track user activity.</p>
+        <p>В <strong>DichApp Studio</strong> мы уделяем приоритетное внимание вашей конфиденциальности. Настоящая Политика конфиденциальности описывает, как мы обрабатываем информацию в наших мобильных приложениях.</p>
 
-    <h2>2. Permissions</h2>
-    <p>Our applications do not require any special permissions (such as access to camera, microphone, contacts, or location) to function.</p>
+        <h2>1. Сбор данных</h2>
+        <p>Наши приложения <strong>не собирают, не хранят и не передают</strong> никакие персональные данные, статистику использования или информацию об устройстве. Мы не используем сторонние SDK, которые отслеживают действия пользователей.</p>
 
-    <h2>3. Third-Party Services</h2>
-    <p>We do not share any information with third-party services because we do not collect any information in the first place.</p>
+        <h2>2. Разрешения</h2>
+        <p>Нашим приложениям не требуются специальные разрешения (такие как доступ к камере, микрофону, контактам или местоположению) для полноценной работы.</p>
 
-    <h2>4. Children's Privacy</h2>
-    <p>Our applications do not collect any personal information from children. We comply with COPPA (Children's Online Privacy Protection Act).</p>
+        <h2>3. Сторонние сервисы</h2>
+        <p>Мы не передаем никакую информацию сторонним сервисам, поскольку мы не собираем информацию в принципе.</p>
 
-    <h2>5. Changes to This Policy</h2>
-    <p>We may update our Privacy Policy from time to time. Any changes will be posted on this page.</p>
+        <h2>4. Конфиденциальность детей</h2>
+        <p>Наши приложения не собирают никакую личную информацию о детях. Мы соблюдаем требования COPPA (Закон о защите конфиденциальности детей в Интернете).</p>
 
-    <h2>6. Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:support@dich-app.com">support@dich-app.com</a></p>
+        <h2>5. Изменения в этой политике</h2>
+        <p>Мы можем время от времени обновлять нашу Политику конфиденциальности. Любые изменения будут опубликованы на этой странице.</p>
+
+        <h2>6. Контакты</h2>
+        <p>Если у вас есть вопросы по поводу этой Политики конфиденциальности, свяжитесь с нами по адресу: <a href="mailto:support@dich-app.com">support@dich-app.com</a></p>
+    </div>
+
+    <!-- English locale -->
+    <div data-lang="en">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: February 20, 2026</p>
+
+        <p>At <strong>DichApp Studio</strong>, we prioritize your privacy. This Privacy Policy describes how we handle information in our mobile applications.</p>
+
+        <h2>1. Data Collection</h2>
+        <p>Our applications <strong>do not collect, store, or transmit</strong> any personal data, usage statistics, or device information. We do not use any third-party SDKs that track user activity.</p>
+
+        <h2>2. Permissions</h2>
+        <p>Our applications do not require any special permissions (such as access to camera, microphone, contacts, or location) to function.</p>
+
+        <h2>3. Third-Party Services</h2>
+        <p>We do not share any information with third-party services because we do not collect any information in the first place.</p>
+
+        <h2>4. Children's Privacy</h2>
+        <p>Our applications do not collect any personal information from children. We comply with COPPA (Children's Online Privacy Protection Act).</p>
+
+        <h2>5. Changes to This Policy</h2>
+        <p>We may update our Privacy Policy from time to time. Any changes will be posted on this page.</p>
+
+        <h2>6. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:support@dich-app.com">support@dich-app.com</a></p>
+    </div>
 
     <div class="footer">
         &copy; 2026 <a href="index.html">DichApp Studio</a>. All rights reserved.
     </div>
+
+    <script>
+        function applyLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            const lang = userLang.startsWith('ru') ? 'ru' : 'en';
+            
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+            });
+        }
+        applyLanguage();
+    </script>
 </body>
 </html>
