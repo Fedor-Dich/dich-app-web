@@ -1,151 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Подключаем шрифт Inter из Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dich-app studio</title>
+    <title>DichApp Studio</title>
+    <!-- Подключаем шрифт Inter из Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* Общие стили для страницы */
         body {
             background-color: #1E1F22;
             color: #CED0D6;
-           font-family: 'Inter', sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             display: flex;
-            flex-direction: column; /* Располагаем элементы вертикально */
-            height: 100vh; /* Занимаем всю высоту экрана */
+            flex-direction: column;
+            height: 100vh;
         }
 
-        /* Основной контент (центр) */
         main {
-            flex-grow: 1; /* Занимает все доступное пространство, толкая футер вниз */
+            flex-grow: 1;
             display: flex;
-            align-items: center; /* Выравнивание по вертикали */
-            justify-content: center; /* Выравнивание по горизонтали */
+            align-items: center;
+            justify-content: center;
             text-align: center;
         }
         
-        /* Заголовок "dich-app studio" */
         h1 {
-            font-size: 2.9em; /* Сделаем основной заголовок крупнее */
+            font-size: 2.9em;
             font-weight: 600;
             margin: 0;
         }
         
-        /* Подзаголовок "Mobile application development" */
-        p {
+        .tagline {
             font-size: 1.3em;
             font-weight: 300;
             margin-top: 10px;
-            color: #CED0D6; /* Устанавливаем одинаковый цвет */
+            color: #CED0D6;
         }
 
+        .apps-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
 
-/* Блок приложений на главной */
-.apps-container {
-    margin-top:40px;
-    display: flex;
-    justify-content: center;
-}
+        .app-card {
+            background: #2B2D31;
+            padding: 20px;
+            border-radius: 16px;
+            width: 280px;
+            text-align: left;
+            transition: transform 0.2s;
+            border: 1px solid #313338;
+        }
 
-.app-card {
-    background: #2B2D31; /* Чуть светлее фона */
-    padding: 20px;
-    border-radius: 16px;
-    width: 280px;
-    text-align: left;
-    transition: transform 0.2s;
-    border: 1px solid #313338;
-}
+        .app-card:hover {
+            transform: translateY(-5px);
+            border-color: #5B9BD5;
+        }
 
-.app-card:hover {
-    transform: translateY(-5px);
-    border-color: #5B9BD5;
-}
+        .app-name {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #CED0D6;
+            margin-bottom: 8px;
+        }
 
-.app-name {
-    font-size: 1.4em;
-    font-weight: 600;
-    color: #CED0D6;
-    margin-bottom: 8px;
-}
+        .app-desc {
+            font-size: 0.95em;
+            color: #BCBEC4;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
 
-.app-desc {
-    font-size: 0.95em;
-    color: #BCBEC4;
-    line-height: 1.4;
-    margin-bottom: 20px;
-}
+        .btn-more {
+            display: inline-block;
+            color: #5B9BD5;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-.btn-more {
-    display: inline-block;
-    color: #5B9BD5;
-    text-decoration: none;
-    font-size: 0.9em;
-    font-weight: 600;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.btn-more:hover {
-    text-decoration: underline;
-}
+        .btn-more:hover {
+            text-decoration: underline;
+          color: #82B1FF;
+        }
       
-          /* Футер (подвал) для почты */
         footer {
             width: 100%;
-            padding: 20px 0; /* Отступы сверху и снизу */
+            padding: 20px 0;
             text-align: center;
         }
 
-    /* Ссылка на почту и политику */
-footer a {
-    color: #5B9BD5;
-    text-decoration: none;
-    font-size: 0.9em;
-    transition: color 0.2s;
-    -webkit-tap-highlight-color: transparent;
-}
-
-footer a:hover, footer a:active {
-    color: #82B1FF;
-    text-decoration: underline; /* Добавили подчеркивание */
-}
-
-    /* Добавим стили для Privacy Policy, чтобы она наследовала поведение */
-    footer a:last-child {
-        margin-left: 0; /* Убираем лишние отступы, если они были в инлайне */
-    }color: #CED0D6; /* При наведении делаем ярче */
+        footer a {
+            color: #5B9BD5;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.2s;
+            -webkit-tap-highlight-color: transparent;
         }
+
+        footer a:hover, footer a:active {
+            color: #82B1FF;
+            text-decoration: underline;
+        }
+
+        /* Прячем блоки до отработки скрипта */
+        [data-lang] { display: none; }
     </style>
 </head>
 <body>
 
-    <!-- Основной контент, который будет по центру -->
     <main>
         <div>
             <h1>DichApp Studio</h1>
-            <p>Mobile application development</p>
- <!-- Блок с приложением -->
-        <div class="apps-container">
-            <div class="app-card">
-                <div class="app-name">PocketGroove</div>
-                <div class="app-desc">Create, share, and collaborate on beats anywhere with a mobile sequencer designed for musicians.</div>
-                <a href="app-pg.html" class="btn-more">Learn more →</a>
+            
+            <!-- Русская локаль -->
+            <div data-lang="ru">
+                <p class="tagline">Разработка мобильных приложений</p>
+                <div class="apps-container">
+                    <div class="app-card">
+                        <div class="app-name">PocketGroove</div>
+                        <div class="app-desc">Создавайте, делитесь и работайте вместе над битами где угодно с помощью мобильного секвенсора, предназначенного для музыкантов.</div>
+                        <a href="app-pg.html" class="btn-more">Узнать больше →</a>
+                    </div>
+                </div>
             </div>
-        </div>
 
-          
+            <!-- English locale -->
+            <div data-lang="en">
+                <p class="tagline">Mobile application development</p>
+                <div class="apps-container">
+                    <div class="app-card">
+                        <div class="app-name">PocketGroove</div>
+                        <div class="app-desc">Create, share, and collaborate on beats anywhere with a mobile sequencer designed for musicians.</div>
+                        <a href="app-pg.html" class="btn-more">Learn more →</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
-    <!-- Футер с контактной информацией -->
     <footer>
-    <a href="mailto:support@dich-app.com">support@dich-app.com</a>
-    <span style="margin: 0 5px; color: #a0a2a8;">|</span> 
-    <a href="privacy.html">Privacy Policy</a>
-</footer>
+        <a href="mailto:support@dich-app.com">support@dich-app.com</a>
+        <span style="margin: 0 5px; color: #a0a2a8;">|</span> 
+        
+        <span data-lang="ru">
+            <a href="privacy.html">Политика конфиденциальности</a>
+        </span>
+        <span data-lang="en">
+            <a href="privacy.html">Privacy Policy</a>
+        </span>
+    </footer>
+
+    <script>
+        function applyLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            const lang = userLang.startsWith('ru') ? 'ru' : 'en';
+            
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                // Используем inline-block для ссылок в футере и block для основных контейнеров
+                if (el.tagName === 'SPAN') {
+                    el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+                } else {
+                    el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+                }
+            });
+        }
+        applyLanguage();
+    </script>
 
 </body>
 </html>
