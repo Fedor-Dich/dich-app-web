@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PocketGroove - DichApp Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>PocketGroove - DichApp Studio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -25,29 +24,25 @@
         }
 
         h1 { font-size: 3em; color: #CED0D6; margin-bottom: 10px; }
-        .tagline { font-size: 1.2em; color: #CED0D6; margin-bottom: 40px; font-weight: 300; }
+        .tagline { font-size: 1.5em; color: #CED0D6; margin-bottom: 40px; font-weight: 400; }
         
         .description {
-            text-align: justify;
-            line-height: 1.5; /* Уменьшенный интервал */
-            font-size: 1.1em;
+            text-align: left; /* Выравнивание по левому краю */
+            line-height: 1.5;
+            font-size: 1.2em;
             color: #BCBEC4;
             margin-bottom: 50px;
-            /* Включаем переносы слов */
-            -webkit-hyphens: auto;
-            -ms-hyphens: auto;
-            hyphens: auto;
         }
 
         .description p {
-            text-indent: 30px;
+            text-indent: 0; /* Убрали красную строку */
             margin-bottom: 12px;
         }
 
         .description ul {
             text-align: left;
             list-style-type: "— ";
-            padding-left: 40px;
+            padding-left: 20px;
             margin-bottom: 15px;
         }
 
@@ -64,7 +59,7 @@
             background-color: transparent;
             border: 2px solid #5B9BD5; 
             color: #5B9BD5;
-            padding: 15px 30px; /* Исходный паддинг */
+            padding: 15px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
@@ -91,15 +86,16 @@
             margin-top: 5px;
         }
 
+        /* Стиль ссылок под кнопкой (как в футере) */
         .store-link {
             color: #5B9BD5;
             text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.2s;
+            transition: color 0.2s;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .store-link:hover {
-            opacity: 1;
+        .store-link:hover, .store-link:active {
+            color: #82B1FF;
             text-decoration: underline;
         }
 
@@ -116,9 +112,11 @@
             transition: color 0.2s;
         }
 
-        footer a:hover { text-decoration: underline; color: #82B1FF; }
+        footer a:hover, footer a:active { 
+            text-decoration: underline; 
+            color: #82B1FF; 
+        }
 
-        /* Скрытие до применения языка */
         [data-lang] { display: none; }
     </style>
 </head>
@@ -127,11 +125,11 @@
 <main>
     <h1>PocketGroove</h1>
     
-    <!-- Russian locale -->
     <div data-lang="ru">
-        <div class="tagline">Писать биты — это просто</div>
+        <div class="tagline">Писать биты — просто</div>
         <div class="description">
-            <p>PocketGroove — это легкий мобильный барабанный секвенсор для тех, кто хочет быстро зафиксировать музыкальную идею, не отвлекаясь на сложные компоненты профессиональных DAW. Мы сосредоточились на главном: интуитивно понятный интерфейс и высокая надежность.</p>
+            <p>PocketGroove — это легкий мобильный барабанный секвенсор для тех, кто хочет быстро зафиксировать музыкальную идею, не отвлекаясь на сложные компоненты профессиональных DAW. Мы сосредоточились на главном — интуитивно понятном интерфейсе и удобстве в использовании.</p>
+
             
             <p><strong>Основные возможности:</strong></p>
             <ul>
@@ -140,7 +138,8 @@
                 <li>Гибкий экспорт: делитесь идеями в формате WAV или пересылайте проект целиком для совместного творчества.</li>
             </ul>
 
-            <p>Независимо от того, являетесь ли вы профессиональным музыкантом или только начинаете свой путь, PocketGroove предоставляет надежный инструмент для набросков “на ходу”. Никакой регистрации, никакой рекламы и лишних разрешений. Просто открыл и написал.</p>
+            <p>Независимо от того, являетесь вы профессиональным музыкантом или только начинаете свой путь, PocketGroove предоставляет надежный инструмент для набросков “на ходу”. Никакой регистрации, никакой рекламы и лишних разрешений — открыл и написал.</p>
+
 
             <p><i>Обращаем внимание на то, что это стартовая версия приложения. Ее функционал ограничен. В ней мы в первую очередь постарались сделать процесс написания бита максимально простым и понятным.</i></p>
 
@@ -148,7 +147,7 @@
             <ul>
                 <li>Добавление новых инструментов.</li>
                 <li>Режим композитора для создания трека из отдельных битов.</li>
-                <li>Добавление 32-х нот в сетку.</li>
+                <li>Добавление в сетку 32-х нот.</li>
                 <li>Расширение музыкальных размеров.</li>
             </ul>
         </div>
@@ -163,11 +162,11 @@
         </div>
     </div>
 
-    <!-- English locale -->
     <div data-lang="en">
         <div class="tagline">Beatmaking made simple</div>
         <div class="description">
-            <p>PocketGroove is a lightweight mobile drum sequencer for those who want to quickly capture a musical idea without being distracted by the complex components of professional DAWs. We focused on the essentials: an intuitive interface and high reliability.</p>
+            <p>PocketGroove is a lightweight mobile drum sequencer for those who want to quickly capture a musical idea without being distracted by the complex components of professional DAWs. We focused on the essentials — an intuitive interface and ease of use.</p>
+
             
             <p><strong>Key features:</strong></p>
             <ul>
@@ -176,7 +175,8 @@
                 <li>Flexible export: share ideas in WAV format or send the entire project for collaboration.</li>
             </ul>
 
-            <p>Whether you're a professional musician or just starting out, PocketGroove provides a solid tool for sketches on the go. No registration, no ads, and no unnecessary permissions. Just open and create.</p>
+            <p>Whether you're a professional musician or just starting out, PocketGroove provides a solid tool for sketches on the go. No registration, no ads, and no unnecessary permissions — just open and create.</p>
+
 
             <p><i>Please note that this is the initial version of the app. Its functionality is currently limited as we focused on making the beat-writing process as simple as possible.</i></p>
 
