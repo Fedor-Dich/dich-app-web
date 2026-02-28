@@ -33,13 +33,7 @@ h1 {
     color: #CED0D6; 
     margin: 0; /* Убираем внешние отступы, так как ими теперь рулит .app-header */
 }
-
-.tagline { 
-    font-size: 1.3em; 
-    color: #CED0D6;
-    margin-bottom: 20px; /* Отступ от подзаголовка до слайдера */
-    font-weight: 300; 
-}        
+   
 
         /* Контейнер для логотипа и заголовка */
 .app-header {
@@ -56,6 +50,13 @@ h1 {
     height: 60px;
     border-radius: 14px; /* Мягкое скругление как в Android */
 }
+
+.tagline { 
+    font-size: 1.3em; 
+    color: #CED0D6;
+    margin-bottom: 20px; /* Отступ от подзаголовка до слайдера */
+    font-weight: 300; 
+}            
         
 
 /* Контейнер слайдера */
@@ -107,54 +108,6 @@ h1 {
     /* Центрируем точку фиксации */
     scroll-snap-align: center;
 }
-/* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */@media (max-width: 600px) {
-    h1 { font-size: 2.2em; }
-    .tagline { 
-        font-size: 1.2em; 
-        margin-bottom: 10px; /* На мобилках отступ еще меньше */
-    }
-
-    .screenshots-track {
-        /* Новая высота слайда будет 480px (это ~14% больше текущих 420px).
-           При такой высоте ширина скриншота станет примерно 270px.
-           Половина ширины для центрирования: 135px. */
-        padding-left: calc(50% - 135px);
-        padding-right: calc(50% - 135px);
-        padding-top: 10px;
-        padding-bottom: 30px;
-        margin-left: 0;
-        gap: 15px; 
-    }
-
-  .description {
-        margin-top: -5px; /* На мобилках подтягиваем чуть меньше, чтобы не слиплось */
-    }
-
-    .screenshots-slider {
-        margin-left: -20px;
-        width: calc(100% + 40px);
-    }
-    
-    .screenshots-track img {
-        height: 480px; /* Увеличили с 420px до 480px */
-        scroll-snap-align: center; 
-    }
-}
-
-        /* Адаптивность логотипа для мобильных */
-@media (max-width: 600px) {
-    .app-header {
-        gap: 10px;
-    }
-    .app-logo {
-        width: 45px; /* Чуть меньше на телефонах */
-        height: 45px;
-        border-radius: 10px;
-    }
-    h1 { 
-        font-size: 2.2em; 
-    }
-}
 
         
         /* Описание — «подтягиваем» текст вверх к слайдеру */
@@ -168,10 +121,11 @@ h1 {
 }
 
       /* Убираем автоматический отступ у первого абзаца */
-.description p:first-child {
-    margin-top: 0;
-}
 
+         .description p:first-child {
+        margin-top: 0;
+        }
+        
         .description p {
             text-indent: 0; /* Убрали красную строку */
             margin-bottom: 12px;
@@ -256,6 +210,47 @@ h1 {
         }
 
         [data-lang] { display: none; }
+
+/* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ — ВСЁ В ОДНОМ БЛОКЕ */
+@media (max-width: 600px) {
+    /* Заголовки и лого */
+    h1 { font-size: 2.2em; }
+    .app-header { gap: 10px; }
+    .app-logo { width: 45px; height: 45px; border-radius: 10px; }
+    
+    .tagline { 
+        font-size: 1.2em; 
+        margin-bottom: 10px; 
+    }
+
+    /* Слайдер и трек */
+    .screenshots-slider {
+        margin-left: -20px;
+        width: calc(100% + 40px);
+    }
+
+    .screenshots-track {
+        padding-left: calc(50% - 135px);
+        padding-right: calc(50% - 135px);
+        padding-top: 10px;
+        padding-bottom: 30px;
+        margin-left: 0;
+        gap: 15px; 
+    }
+    
+    .screenshots-track img {
+        height: 480px;
+        scroll-snap-align: center; 
+    }
+
+    /* Описание */
+    .description {
+        margin-top: -5px; 
+    }
+}
+        
+
+
     </style>
 </head>
 <body>
