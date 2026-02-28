@@ -34,6 +34,13 @@ h1 {
     margin: 0; /* Убираем внешние отступы, так как ими теперь рулит .app-header */
 }
 
+.tagline { 
+    font-size: 1.3em; 
+    color: #CED0D6;
+    margin-bottom: 20px; /* Отступ от подзаголовка до слайдера */
+    font-weight: 300; 
+}        
+
         /* Контейнер для логотипа и заголовка */
 .app-header {
     display: flex;
@@ -56,15 +63,19 @@ h1 {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    margin-bottom: 40px;
+    
+    /* СИММЕТРИЯ: задаем внешние отступы */
+    margin-top: 20px;    /* Чтобы не липло к подзаголовку */
+    margin-bottom: 20px; /* Уменьшили с 40px, чтобы быть ближе к описанию */
+    
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
-    
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
     display: block; 
 }
+
 
 /* Трек со скриншотами */
 .screenshots-track {
@@ -98,7 +109,10 @@ h1 {
 }
 /* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */@media (max-width: 600px) {
     h1 { font-size: 2.2em; }
-    .tagline { font-size: 1.1em; } 
+    .tagline { 
+        font-size: 1.1em; 
+        margin-bottom: 10px; /* На мобилках отступ еще меньше */
+    }
 
     .screenshots-track {
         /* Новая высота слайда будет 480px (это ~14% больше текущих 420px).
