@@ -65,8 +65,8 @@ h1 {
     overflow-y: hidden;
     
     /* СИММЕТРИЯ: задаем внешние отступы */
-    margin-top: 20px;    /* Чтобы не липло к подзаголовку */
-    margin-bottom: 20px; /* Уменьшили с 40px, чтобы быть ближе к описанию */
+    margin-top: 0;    /* Чтобы не липло к подзаголовку */
+    margin-bottom: 0; /* Уменьшили с 40px, чтобы быть ближе к описанию */
     
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -88,7 +88,7 @@ h1 {
     padding-left: calc(50% - 140px); 
     padding-right: calc(50% - 140px);
     padding-top: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 25px;
     
     /* Убираем margin-left, он больше не нужен */
     margin-left: 0; 
@@ -126,6 +126,10 @@ h1 {
         gap: 15px; 
     }
 
+  .description {
+        margin-top: -5px; /* На мобилках подтягиваем чуть меньше, чтобы не слиплось */
+    }
+
     .screenshots-slider {
         margin-left: -20px;
         width: calc(100% + 40px);
@@ -153,13 +157,20 @@ h1 {
 }
 
         
-        .description {
-            text-align: left; /* Выравнивание по левому краю */
-            line-height: 1.4;
-            font-size: 1em;
-            color: #BCBEC4;
-            margin-bottom: 50px;
-        }
+        /* Описание — «подтягиваем» текст вверх к слайдеру */
+.description {
+    text-align: left;
+    line-height: 1.4;
+    font-size: 1em;
+    color: #BCBEC4;
+    margin-top: -10px; /* ОТРИЦАТЕЛЬНЫЙ ОТСТУП: двигает весь блок выше */
+    margin-bottom: 50px;
+}
+
+      /* Убираем автоматический отступ у первого абзаца */
+.description p:first-child {
+    margin-top: 0;
+}
 
         .description p {
             text-indent: 0; /* Убрали красную строку */
