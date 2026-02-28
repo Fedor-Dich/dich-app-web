@@ -15,52 +15,77 @@
             min-height: 100vh;
         }
 
-        main {
-            flex-grow: 1;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
-        }
+       /* Обновляем основной контейнер, чтобы ничего не вылетало за края */
+main {
+    flex-grow: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%; /* Гарантируем ширину */
+    box-sizing: border-box;
+    overflow-x: hidden; /* КРИТИЧНО: обрезаем вылеты */
+}
 
         h1 { font-size: 2.9em; color: #CED0D6; margin-bottom: 10px; }
         .tagline { font-size: 1.3em; color: #CED0D6; margin-bottom: 40px; font-weight: 300; }
 
 
-        /* Контейнер слайдера */
+/* Контейнер слайдера */
 .screenshots-slider {
-    display: block; /* Гарантируем, что это блочный элемент */
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     margin-bottom: 40px;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    cursor: grab;
+    -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
     
-    /* Добавляем Scroll Snapping */
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
+    
+    /* Центрируем содержимое, если оно вдруг меньше экрана */
+    display: flex;
+    justify-content: center;
 }
 
-/* Трек */
+/* Трек со скриншотами */
 .screenshots-track {
     display: flex;
-    gap: 20px;
-    padding: 10px 0 20px 0; /* Нижний отступ для тени */
-    justify-content: flex-start;
+    gap: 15px;
+    padding: 10px 20px 30px 20px; /* Отступы по бокам, чтобы слайды не липли к краям при скролле */
+    justify-content: flex-start; /* Начинаем скролл от левого края */
 }
 
 /* Сами скриншоты */
 .screenshots-track img {
-    height: 500px; /* Увеличил чуть-чуть для красоты */
+    height: 500px; /* Высота для десктопа */
+    width: auto;
     border-radius: 16px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     flex-shrink: 0;
-    transition: transform 0.3s ease;
+    scroll-snap-align: center;
+}
+      /* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 600px) {
+    h1 { font-size: 2.2em; }
+    .tagline { font-size: 1.1em; }
     
-    /* Слайд будет "магнититься" своим центром к центру экрана */
-    scroll-snap-align: center; 
+    /* Уменьшаем высоту скриншотов, чтобы они влезали по вертикали и не были огромными */
+    .screenshots-track img {
+        height: 420px; 
+    }
+    
+    /* Сдвигаем слайдер влево-вправо, игнорируя padding родителя, 
+       чтобы он был "от края до края" экрана */
+    .screenshots-slider {
+        margin-left: -20px;
+        width: calc(100% + 40px);
+    }
+    
+    .description {
+        font-size: 0.95em;
+    }
 }
 
         
