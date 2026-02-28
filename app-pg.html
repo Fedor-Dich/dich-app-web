@@ -76,19 +76,20 @@ main {
     /* Центрируем точку фиксации */
     scroll-snap-align: center;
 }
-/* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */
-@media (max-width: 600px) {
-     h1 { font-size: 2.2em; } /* Уменьшаем для мобилок */
+/* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */@media (max-width: 600px) {
+    h1 { font-size: 2.2em; }
     .tagline { font-size: 1.1em; } 
 
-   .screenshots-track {
-        /* На мобилках при высоте 420px ширина скриншота примерно 236px.           Половина — 118px. */
-        padding-left: calc(50% - 118px);
-        padding-right: calc(50% - 118px);
+    .screenshots-track {
+        /* Новая высота слайда будет 480px (это ~14% больше текущих 420px).
+           При такой высоте ширина скриншота станет примерно 270px.
+           Половина ширины для центрирования: 135px. */
+        padding-left: calc(50% - 135px);
+        padding-right: calc(50% - 135px);
         padding-top: 10px;
         padding-bottom: 30px;
         margin-left: 0;
-        gap: 15px; /* Можно оставить 15 как на десктопе для единообразия */
+        gap: 15px; 
     }
 
     .screenshots-slider {
@@ -97,8 +98,7 @@ main {
     }
     
     .screenshots-track img {
-        height: 420px;
-        /* Магнит теперь будет работать по центру экрана мобильного */
+        height: 480px; /* Увеличили с 420px до 480px */
         scroll-snap-align: center; 
     }
 }
