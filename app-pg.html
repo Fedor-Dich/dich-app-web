@@ -36,16 +36,13 @@ main {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    margin-bottom:40px;
+    margin-bottom: 40px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
     
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
-
-    /* ИСПРАВЛЕНИЕ: Убираем justify-content: center, 
-       вместо него используем обычное блочное отображение */
     display: block; 
 }
 
@@ -53,24 +50,30 @@ main {
 .screenshots-track {
     display: flex;
     gap: 15px;
-    /* ИСПРАВЛЕНИЕ: Добавляем большие отступы по бокам, 
-       чтобы ПЕРВЫЙ и ПОСЛЕДНИЙ слайды могли встать по центру экрана */
-    padding: 10px 50% 30px 50%; 
     
-    /* Сдвигаем трек влево ровно на половину ширины одного скриншота 
-       (приблизительно), чтобы первый слайд сразу был виден */
-    margin-left: -250px; 
+    /* ИСПРАВЛЕНИЕ: Используем calc для создания отступа, 
+       который всегда равен половине ширины экрана минус половина ширины скриншота.
+       При высоте 500px ширина вашего скриншота примерно 280px. */
+    padding-left: calc(50% - 140px); 
+    padding-right: calc(50% - 140px);
+    padding-top: 10px;
+    padding-bottom: 30px;
     
-    width: max-content; /* Важно, чтобы контейнер не сжимался */
+    /* Убираем margin-left, он больше не нужен */
+    margin-left: 0; 
+    
+    width: max-content;
 }
+
 
 /* Сами скриншоты */
 .screenshots-track img {
-    height: 500px; /* Высота для десктопа */
+    height: 500px;
     width: auto;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     flex-shrink: 0;
+    /* Центрируем точку фиксации */
     scroll-snap-align: center;
 }
 /* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */
@@ -78,11 +81,14 @@ main {
      h1 { font-size: 2.2em; } /* Уменьшаем для мобилок */
     .tagline { font-size: 1.1em; } 
 
-    .screenshots-track {
-        /* На мобилках подбираем отступ, чтобы первый слайд был по центру */
-        padding: 10px 80px 30px 80px; 
+   .screenshots-track {
+        /* На мобилках при высоте 420px ширина скриншота примерно 236px.           Половина — 118px. */
+        padding-left: calc(50% - 118px);
+        padding-right: calc(50% - 118px);
+        padding-top: 10px;
+        padding-bottom: 30px;
         margin-left: 0;
-        gap: 10px;
+        gap: 15px; /* Можно оставить 15 как на десктопе для единообразия */
     }
 
     .screenshots-slider {
