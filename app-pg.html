@@ -27,9 +27,30 @@ main {
     overflow-x: hidden; /* КРИТИЧНО: обрезаем вылеты */
 }
 
-        h1 { font-size: 2.9em; color: #CED0D6; margin-bottom: 10px; }
-        .tagline { font-size: 1.3em; color: #CED0D6; margin-bottom: 40px; font-weight: 300; }
+    /* Корректировка заголовка, чтобы он не прыгал */
+h1 { 
+    font-size: 2.9em; 
+    color: #CED0D6; 
+    margin: 0; /* Убираем внешние отступы, так как ими теперь рулит .app-header */
+}
 
+        /* Контейнер для логотипа и заголовка */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Расстояние между лого и текстом */
+    margin-bottom: 1px;
+}
+
+/* Стиль логотипа */
+.app-logo {
+    width: 60px;  /* Размер лого для десктопа */
+    height: 60px;
+    border-radius: 14px; /* Мягкое скругление как в Android */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Легкая тень для объема */
+}
+        
 
 /* Контейнер слайдера */
 .screenshots-slider {
@@ -100,6 +121,21 @@ main {
     .screenshots-track img {
         height: 480px; /* Увеличили с 420px до 480px */
         scroll-snap-align: center; 
+    }
+}
+
+        /* Адаптивность логотипа для мобильных */
+@media (max-width: 600px) {
+    .app-header {
+        gap: 10px;
+    }
+    .app-logo {
+        width: 45px; /* Чуть меньше на телефонах */
+        height: 45px;
+        border-radius: 10px;
+    }
+    h1 { 
+        font-size: 2.2em; 
     }
 }
 
@@ -201,7 +237,9 @@ main {
 <body>
 
 <main>
-    <h1>PocketGroove</h1>
+    <div class="app-header">
+    <img src="images/pocketgroove/ic_launcher.svg" alt="PocketGroove Logo" class="app-logo"><h1>PocketGroove</h1>
+</div>
 
 <!-- Выносим общие элементы для обеих локалей -->
     <div data-lang="ru"><div class="tagline">Писать биты — просто</div></div>
