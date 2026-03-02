@@ -14,7 +14,8 @@
             font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+             min-height: 100vh; /* Для старых браузеров */
+    min-height: 100dvh; /* Динамическая высота (учитывает панели браузера) */
             margin: 0;
             text-align: center;
         }
@@ -134,7 +135,7 @@
         /* Футер */
         footer {
             width: 100%;
-            padding: 40px 0 20px;
+            padding: 20px 0;
             text-align: center;
         }
 
