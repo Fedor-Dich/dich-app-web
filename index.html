@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DichApp Studio</title>
-    <!-- Подключаем шрифт Inter из Google Fonts -->
+    <title>DichApp Studio</title>    <!-- Подключаем шрифт Inter из Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* Общие стили для страницы */
@@ -15,8 +14,8 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-             min-height: 100vh; /* Для старых браузеров */
-    min-height: 100dvh; /* Динамическая высота (учитывает панели браузера) */
+            min-height: 100vh; /* Для старых браузеров */
+            min-height: 100dvh; /* Динамическая высота (учитывает панели браузера) */
         }
 
         main {
@@ -61,11 +60,25 @@
             border-color: #5B9BD5;
         }
 
+        /* НОВЫЙ БЛОК: Стили для логотипа в карточке */
+        .app-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .card-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
         .app-name {
             font-size: 1.4em;
             font-weight: 600;
             color: #CED0D6;
-            margin-bottom: 8px;
+            margin: 0; /* Убираем отступ, так как теперь есть gap у хедера */
         }
 
         .app-desc {
@@ -86,7 +99,7 @@
 
         .btn-more:hover {
             text-decoration: underline;
-          color: #82B1FF;
+            color: #82B1FF;
         }
       
         footer {
@@ -112,27 +125,12 @@
         [data-lang] { display: none; }
 
         /* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */
-@media (max-width: 600px) {
-    h1 { 
-        font-size: 2.2em; /* Уменьшаем основной заголовок */
-    }
-    
-    .tagline { 
-        font-size: 1.1em; /* Чуть уменьшаем подзаголовок */
-        padding: 0 20px; /* Чтобы текст не упирался в края экрана */
-    }
-
-    .apps-container {
-        margin-top: 30px; /* Немного приподнимаем карточку выше */
-    }
-
-    .app-card {
-        width: 85%; /* На мобильных карточка должна занимать почти всю ширину */
-        max-width: 300px;
-        margin: 0 auto; /* Центрируем */
-    }
-}
-        
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2em; }
+            .tagline { font-size: 1.1em; padding: 0 20px; }
+            .apps-container { margin-top: 30px; }
+            .app-card { width: 85%; max-width: 300px; margin: 0 auto; }
+        }
     </style>
 </head>
 <body>
@@ -146,7 +144,11 @@
                 <p class="tagline">Разработка мобильных приложений</p>
                 <div class="apps-container">
                     <div class="app-card">
-                        <div class="app-name">PocketGroove</div>
+                        <!-- Добавили хедер с логотипом -->
+                        <div class="app-card-header">
+                            <img src="images/pocketgroove/ic_launcher.svg" alt="PocketGroove Logo" class="card-logo">
+                            <div class="app-name">PocketGroove</div>
+                        </div>
                         <div class="app-desc">Создавайте, делитесь и работайте вместе над битами где угодно с помощью мобильного секвенсора, предназначенного для музыкантов.</div>
                         <a href="app-pg.html" class="btn-more">Узнать больше →</a>
                     </div>
@@ -158,7 +160,11 @@
                 <p class="tagline">Mobile application development</p>
                 <div class="apps-container">
                     <div class="app-card">
-                        <div class="app-name">PocketGroove</div>
+                        <!-- Добавили хедер с логотипом -->
+                        <div class="app-card-header">
+                            <img src="images/pocketgroove/ic_launcher.svg" alt="PocketGroove Logo" class="card-logo">
+                            <div class="app-name">PocketGroove</div>
+                        </div>
                         <div class="app-desc">Create, share, and collaborate on beats anywhere with a mobile sequencer designed for musicians.</div>
                         <a href="app-pg.html" class="btn-more">Learn more →</a>
                     </div>
@@ -185,7 +191,6 @@
             const lang = userLang.startsWith('ru') ? 'ru' : 'en';
             
             document.querySelectorAll('[data-lang]').forEach(el => {
-                // Используем inline-block для ссылок в футере и block для основных контейнеров
                 if (el.tagName === 'SPAN') {
                     el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
                 } else {
