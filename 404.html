@@ -24,28 +24,62 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
         .container { 
-            padding: 20px; 
             max-width: 600px;
+            width: 100%;
+        }
+
+        /* КОПИРУЕМ СТИЛИ ЗАГОЛОВКА ИЗ app-pg.html */
+        .app-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .app-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
         }
 
         h1 { 
             font-size: 2.9em; 
-            margin-bottom: 10px; 
+            color: #CED0D6; 
+            margin: 0; 
             font-weight: 600;
         }
 
         .message { 
             font-size: 1.1em; 
             line-height: 1.5; 
-            margin: 0 auto 40px;
+            margin: 0 auto 15px; /* Уменьшили отступ снизу */
             color: #BCBEC4;
             max-width: 500px;
         }
 
-        /* Блок загрузки (как в app-pg) */
+        /* Ссылка "Подробнее" */
+        .details-link {
+            display: block;
+            margin-bottom: 40px;
+            font-size: 1em;
+            color: #BCBEC4;
+        }
+
+        .details-link a {
+            color: #5B9BD5;
+            text-decoration: none;
+        }
+
+        .details-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Блок загрузки */
         .download-container {
             display: flex;
             flex-direction: column;
@@ -96,7 +130,6 @@
             text-decoration: underline;
         }
 
-        /* Футер */
         footer {
             width: 100%;
             padding: 40px 0 20px;
@@ -107,17 +140,18 @@
             color: #5B9BD5;
             text-decoration: none;
             font-size: 0.9em;
-            transition: color 0.2s;
-        }
-
-        footer a:hover, footer a:active {
-            color: #82B1FF;
-            text-decoration: underline;
         }
 
         .copyright {
             color: #a0a2a8;
             font-size: 0.9em;
+        }
+
+        /* Адаптивность как в app-pg */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2em; }
+            .app-logo { width: 45px; height: 45px; border-radius: 10px; }
+            .app-header { gap: 10px; }
         }
     </style>
 </head>
@@ -125,14 +159,22 @@
 
     <main>
         <div class="container">
-            <h1>PocketGroove</h1>
+            <!-- Добавили логотип -->
+            <div class="app-header">
+                <img src="images/pocketgroove/ic_launcher.svg" alt="PocketGroove Logo" class="app-logo">
+                <h1>PocketGroove</h1>
+            </div>
+
             <p id="message" class="message">You've been sent a beat in PocketGroove! To open it, install the app and then follow the link again.</p>
             
+            <!-- Ссылка на подробности -->
+            <div id="details-box" class="details-link">
+                <span id="details-text">Learn more about</span> <a href="app-pg.html">PocketGroove</a>
+            </div>
+
             <div class="download-container">
-                <!-- Основная кнопка, текст которой меняется скриптом -->
                 <a id="btn-main" href="https://www.rustore.ru/catalog/app/com.fedordich.pocketgroove" class="play-store-btn">Download App</a>
                 
-                <!-- Дополнительные ссылки -->
                 <div class="other-stores">
                     <a href="#" class="store-link">AppGallery</a>
                     <a href="#" class="store-link">Galaxy Store</a>
@@ -152,7 +194,6 @@
     <script>
         const path = window.location.pathname;
 
-        // Если в пути НЕТ PocketGroove, отправляем на главную страницу разработчика
         if (!path.includes('pocketgroove')) {
             window.location.href = 'index.html';
         }
@@ -160,41 +201,49 @@
         const translations = {
             'ru': {
                 message: 'Вам прислали бит в PocketGroove! Чтобы его открыть, установите приложение, а затем снова перейдите по ссылке.',
+                details: 'Подробнее о',
                 btn: 'Доступно в RuStore',
                 apk: 'Скачать .APK'
             },
             'de': {
                 message: 'Dir wurde ein Beat in PocketGroove gesendet! Um ihn zu öffnen, installiere die App und folge dann erneut dem Link.',
+                details: 'Mehr über',
                 btn: 'Bei RuStore herunterladen',
                 apk: '.APK herunterladen'
             },
             'es': {
                 message: '¡Te han enviado un beat en PocketGroove! Para abrirlo, instala la aplicación y luego vuelve a seguir el enlace.',
+                details: 'Más información sobre',
                 btn: 'Consíguelo en RuStore',
                 apk: 'Descargar .APK'
             },
             'fr': {
                 message: 'On vous a envoyé un beat dans PocketGroove ! Pour l\'ouvrir, installez l\'application puis suivez à nouveau le lien.',
+                details: 'En savoir plus sur',
                 btn: 'Disponible sur RuStore',
                 apk: 'Télécharger .APK'
             },
             'hi': {
                 message: 'आपको PocketGroove में एक बीट भेजी गई है! इसे खोलने के लिए, ऐप इंस्टॉल करें और फिर से लिंक पर जाएं।',
+                details: 'इसके बारे में और जानें',
                 btn: 'RuStore से प्राप्त करें',
                 apk: '.APK डाउनलोड करें'
             },
             'it': {
                 message: 'Ti è stato inviato un beat in PocketGroove! Per aprirlo, installa l\'app e poi segui di nuovo il link.',
+                details: 'Scopri di più su',
                 btn: 'Scarica su RuStore',
                 apk: 'Scarica .APK'
             },
             'pt': {
                 message: 'Enviaram-te um beat no PocketGroove! Para o abrires, instala a aplicação e depois volta a aceder ao link.',
+                details: 'Saiba mais sobre',
                 btn: 'Obter no RuStore',
                 apk: 'Descarregar .APK'
             },
             'zh': {
                 message: '有人在 PocketGroove 中给你发了一个节奏！要打开它，请安装该应用，然后再次访问链接。',
+                details: '了解更多关于',
                 btn: '在 RuStore 下载',
                 apk: '下载 .APK'
             }
@@ -203,6 +252,7 @@
         const userLang = navigator.language.split('-')[0]; 
         if (translations[userLang]) {
             document.getElementById('message').innerText = translations[userLang].message;
+            document.getElementById('details-text').innerText = translations[userLang].details;
             document.getElementById('btn-main').innerText = translations[userLang].btn;
             document.getElementById('apk-link').innerText = translations[userLang].apk;
         }
