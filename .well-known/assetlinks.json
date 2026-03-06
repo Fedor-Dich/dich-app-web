@@ -3,6 +3,6 @@
   "target": {
     "namespace": "android_app",
     "package_name": "com.fedordich.pocketgroove",
-    "sha256_cert_fingerprints": ["0C:88:1F:22:41:19:96:FE:23:35:3F:9E:2B:E4:CF:6B:A9:FE:BB:01:64:20:3A:F9:12:EE:EB:A8:9C:1B:56:B9"]
+    "sha256_cert_fingerprints": ["F2:8A:C4:C1:C0:7E:31:FB:13:D5:7B:CB:47:72:E7:96:E1:BB:BC:5A:CC:B2:89:73:38:AD:7D:7E:A6:50:E5:C2"]
   }
 }]
