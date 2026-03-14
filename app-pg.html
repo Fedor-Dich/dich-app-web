@@ -36,27 +36,40 @@ h1 {
    
 
         /* Контейнер для логотипа и заголовка */
+
+/*
 .app-header {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px; /* Расстояние между лого и текстом */
     margin-bottom: 1px;
-}
+} */
 
 /* Стиль логотипа */
+/*
 .app-logo {
     width: 60px;  /* Размер лого для десктопа */
     height: 60px;
     border-radius: 14px; /* Мягкое скругление как в Android */
-}
+} */
 
+/*
 .tagline { 
     font-size: 1.3em; 
     color: #CED0D6;
     margin-bottom: 20px; /* Отступ от подзаголовка до слайдера */
     font-weight: 300; 
-}            
+} */    
+
+/* Стиль для графического заголовка */
+.feature-banner {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}     
         
 
 /* Контейнер слайдера */
@@ -259,13 +272,28 @@ h1 {
 <body>
 
 <main>
+
+
+<!-- ЭТО ЗАКОММЕНТИРОВАНО (НЕ БУДЕТ ВИДНО НА САЙТЕ)
+
     <div class="app-header">
     <img src="images/pocketgroove/ic_launcher.svg" alt="PocketGroove Logo" class="app-logo"><h1>PocketGroove</h1>
 </div>
 
-<!-- Выносим общие элементы для обеих локалей -->
     <div data-lang="ru"><div class="tagline">Писать биты — просто</div></div>
     <div data-lang="en"><div class="tagline">Beatmaking made simple</div></div>
+
+-->
+
+
+<!-- А НИЖЕ ВСТАВЬТЕ НОВЫЙ БЛОК С БАННЕРОМ -->
+<div data-lang="ru">
+    <img src="images/pocketgroove/ru/feature_graphic_ru.png" alt="PocketGroove" class="feature-banner">
+</div>
+<div data-lang="en">
+    <img src="images/pocketgroove/en/feature_graphic_en.png" alt="PocketGroove" class="feature-banner">
+</div>
+
 
   <!-- РУССКИЙ СЛАЙДЕР -->
     <div data-lang="ru">
@@ -324,9 +352,9 @@ h1 {
         <div class="download-container">
             <a href="https://www.rustore.ru/catalog/app/com.fedordich.pocketgroove" class="play-store-btn">Доступно в RuStore</a>
             <div class="other-stores">
-                <a href="#" class="store-link">AppGallery</a>
-                <a href="#" class="store-link">Galaxy Store</a>
-                <a href="#" class="store-link">GetApps</a>
+                <!-- <a href="#" class="store-link">AppGallery</a> -->
+        <!-- <a href="#" class="store-link">Galaxy Store</a> -->
+        <!-- <a href="#" class="store-link">GetApps</a> -->
                 <a href="downloads/pocketgroove.apk" download="PocketGroove.apk" class="store-link">Скачать .APK</a>
             </div>
         </div>
@@ -360,10 +388,9 @@ h1 {
         <div class="download-container">
             <a href="https://www.rustore.ru/catalog/app/com.fedordich.pocketgroove" class="play-store-btn">Get it on RuStore</a>
             <div class="other-stores">
-                <a href="#" class="store-link">AppGallery</a>
-                <a href="#" class="store-link">Galaxy Store</a>
-                <a href="#" class="store-link">GetApps</a>
-                <a href="downloads/pocketgroove.apk" download="PocketGroove.apk" class="store-link">Download .APK</a>
+                 <!-- <a href="#" class="store-link">AppGallery</a> -->
+        <!-- <a href="#" class="store-link">Galaxy Store</a> -->
+        <!-- <a href="#" class="store-link">GetApps</a> -->                <a href="downloads/pocketgroove.apk" download="PocketGroove.apk" class="store-link">Download .APK</a>
             </div>
         </div>
     </div>
