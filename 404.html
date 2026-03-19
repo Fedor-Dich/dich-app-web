@@ -287,17 +287,30 @@
             document.getElementById('btn-main').href = 'https://appgallery.huawei.com/app/C117152235';
         }
 
-        // Раскомментируем и обновим ссылку в блоке "другие магазины" для всех
-        // Чтобы RuStore был доступен даже иностранцам (как запасной вариант)
+        // 1. Находим контейнер для маленьких ссылок
         const otherStores = document.querySelector('.other-stores');
+        const apkLink = document.getElementById('apk-link');
+
+        // 2. Создаем ссылки-заглушки
         const ruStoreLink = document.createElement('a');
         ruStoreLink.href = "https://www.rustore.ru/catalog/app/com.fedordich.pocketgroove";
         ruStoreLink.className = "store-link";
         ruStoreLink.innerText = "RuStore";
-        
-        // Вставляем RuStore перед ссылкой на APK, если текущий стор - AppGallery
-        if (document.getElementById('btn-main').href.includes('huawei')) {
-            otherStores.insertBefore(ruStoreLink, document.getElementById('apk-link'));
+
+        const huaweiStoreLink = document.createElement('a');
+        huaweiStoreLink.href = "https://appgallery.huawei.com/app/C117152235";
+        huaweiStoreLink.className = "store-link";
+        huaweiStoreLink.innerText = "AppGallery";
+
+        // 3. Логика добавления: добавляем в список то, чего нет на главной кнопке
+        const mainBtnHref = document.getElementById('btn-main').href;
+
+        if (mainBtnHref.includes('rustore')) {
+            // Если на главной RuStore -> добавляем AppGallery вниз перед APK
+            otherStores.insertBefore(huaweiStoreLink, apkLink);
+        } else if (mainBtnHref.includes('huawei')) {
+            // Если на главной AppGallery -> добавляем RuStore вниз перед APK
+            otherStores.insertBefore(ruStoreLink, apkLink);
         }
 
         
