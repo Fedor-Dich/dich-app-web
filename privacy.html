@@ -137,20 +137,57 @@
         <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:support@dich-app.com">support@dich-app.com</a></p>
     </div>
 
-    <div class="footer">
-        &copy; 2026 <a href="index.html">DichApp Studio</a>. All rights reserved.
-    </div>
+   <!-- Chinese locale (zh) -->
+<div data-lang="zh">
+    <h1>隐私政策</h1>
+    <p class="last-updated">最后更新：2026年2月20日</p>
 
-    <script>
-        function applyLanguage() {
-            const userLang = navigator.language || navigator.userLanguage;
-            const lang = userLang.startsWith('ru') ? 'ru' : 'en';
-            
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
-            });
+    <p>在 <strong>DichApp Studio</strong>，我们优先保护您的隐私。本隐私政策描述了我们在移动应用程序中处理信息的方式。</p>
+
+    <h2>1. 数据收集</h2>
+    <p>我们的应用程序<strong>不收集、不存储、也不传输</strong>任何个人数据、使用统计信息或设备信息。我们不使用任何跟踪用户活动的第三方 SDK。</p>
+
+    <h2>2. 权限</h2>
+    <p>我们的应用程序不需要任何特殊权限（如访问摄像头、麦克风、通讯录或位置）即可正常运行。</p>
+
+    <h2>3. 第三方服务</h2>
+    <p>我们不与第三方服务共享任何信息，因为我们根本不收集任何信息。</p>
+
+    <h2>4. 儿童隐私</h2>
+    <p>我们的应用程序不收集儿童的任何个人信息。我们遵守 COPPA（儿童在线隐私保护法）。</p>
+
+    <h2>5. 政策修订</h2>
+    <p>我们可能会不时更新隐私政策。任何更改都将发布在此页面上。</p>
+
+    <h2>6. 联系我们</h2>
+    <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：<a href="mailto:support@dich-app.com">support@dich-app.com</a></p>
+</div> 
+
+    <div class="footer">
+    &copy; 2026 <a href="index.html">DichApp Studio</a>. All rights reserved.
+    <!-- Этот блок появится только для китайской локали -->
+    <div id="dev-info" style="display: none; margin-top: 10px;">
+        (Developer: Fedor Sergeevich Goleshchuk)
+    </div>
+</div>
+
+  <script>
+    function applyLanguage() {
+        const userLang = navigator.language || navigator.userLanguage;
+        // Определяем язык: если начинается на ru -> ru, если на zh -> zh, иначе -> en
+        const lang = userLang.startsWith('ru') ? 'ru' : (userLang.startsWith('zh') ? 'zh' : 'en');
+        
+        document.querySelectorAll('[data-lang]').forEach(el => {
+            el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+        });
+
+        // ТОЧЕЧНОЕ ДОБАВЛЕНИЕ: если язык китайский, показываем блок разработчика
+        const devInfo = document.getElementById('dev-info');
+        if (devInfo) {
+            devInfo.style.display = (lang === 'zh') ? 'block' : 'none';
         }
-        applyLanguage();
-    </script>
+    }
+    applyLanguage();
+</script>
 </body>
 </html>
