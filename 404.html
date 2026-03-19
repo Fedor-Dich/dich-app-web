@@ -184,13 +184,12 @@
             <div class="download-container">
                 <a id="btn-main" href="https://www.rustore.ru/catalog/app/com.fedordich.pocketgroove" class="play-store-btn">Download App</a>
                 
+    
                 <div class="other-stores">
-                    <!-- Скрываем магазины, которые еще на модерации -->
-        <!-- <a href="#" class="store-link">AppGallery</a> -->
-        <!-- <a href="#" class="store-link">Galaxy Store</a> -->
-        <!-- <a href="#" class="store-link">GetApps</a> -->
-                    <a id="apk-link" href="downloads/pocketgroove.apk" download="PocketGroove.apk" class="store-link">Download .APK</a>
-                </div>
+    <!-- Сюда скрипт сам добавит RuStore, если основная кнопка станет AppGallery -->
+    <a id="apk-link" href="downloads/pocketgroove.apk" download="PocketGroove.apk" class="store-link">Download .APK</a>
+</div>
+
             </div>
         </div>
     </main>
@@ -214,59 +213,94 @@
                 message: 'Вам прислали бит в PocketGroove! Чтобы его открыть, установите приложение, а затем снова перейдите по ссылке.',
                 details: 'Подробнее о PocketGroove →',
                 btn: 'Доступно в RuStore',
+                storeUrl: 'https://www.rustore.ru/catalog/app/com.fedordich.pocketgroove',
                 apk: 'Скачать .APK'
             },
             'de': {
                 message: 'Dir wurde ein Beat in PocketGroove gesendet! Um ihn zu öffnen, installiere die App und folge dann erneut dem Link.',
                 details: 'Mehr über PocketGroove →',
-                btn: 'Bei RuStore herunterladen',
+                btn: 'Bei AppGallery herunterladen',
+                storeUrl: 'https://appgallery.huawei.com/app/C117152235',
                 apk: '.APK herunterladen'
             },
             'es': {
                 message: '¡Te han enviado un beat en PocketGroove! Para abrirlo, instala la aplicación y luego vuelve a seguir el enlace.',
                 details: 'Más sobre PocketGroove →',
-                btn: 'Consíguelo en RuStore',
+                btn: 'Consíguelo en AppGallery',
+                storeUrl: 'https://appgallery.huawei.com/app/C117152235',
                 apk: 'Descargar .APK'
             },
             'fr': {
                 message: 'On vous a envoyé un beat dans PocketGroove ! Pour l\'ouvrir, installez l\'application puis suivez à nouveau le lien.',
                 details: 'En savoir plus sur PocketGroove →',
-                btn: 'Disponible sur RuStore',
+                btn: 'Disponible sur AppGallery',
+                storeUrl: 'https://appgallery.huawei.com/app/C117152235',
                 apk: 'Télécharger .APK'
             },
             'hi': {
                 message: 'आपको PocketGroove में एक बीट भेजी गई है! इसे खोलने के लिए, ऐप इंस्टॉल करें और फिर से लिंक पर जाएं।',
                 details: 'PocketGroove के बारे में и जानें →',
-                btn: 'RuStore से प्राप्त करें',
+                btn: 'AppGallery से प्राप्त करें',
+                storeUrl: 'https://appgallery.huawei.com/app/C117152235',
                 apk: '.APK डाउनलोड करें'
             },
             'it': {
                 message: 'Ti è stato inviato un beat in PocketGroove! Per aprirlo, installa l\'app e poi segui di nuovo il link.',
                 details: 'Scopri di più su PocketGroove →',
-                btn: 'Scarica su RuStore',
+                btn: 'Scarica su AppGallery',
+                storeUrl: 'https://appgallery.huawei.com/app/C117152235',
                 apk: 'Scarica .APK'
             },
             'pt': {
                 message: 'Enviaram-te um beat no PocketGroove! Para o abrires, instala a aplicação e depois volta a aceder ao link.',
                 details: 'Saiba mais sobre PocketGroove →',
-                btn: 'Obter no RuStore',
+                btn: 'Obter no AppGallery',
+                storeUrl: 'https://appgallery.huawei.com/app/C117152235',
                 apk: 'Descarregar .APK'
             },
             'zh': {
                 message: '有人在 PocketGroove 中给你发了一个节奏！要打开 it，请安装该应用，然后再次访问链接。',
                 details: '了解更多关于 PocketGroove →',
-                btn: '在 RuStore 下载',
+                btn: '在 AppGallery 下载',
+                storeUrl: 'https://appgallery.huawei.com/app/C117152235',
                 apk: '下载 .APK'
-            }
+            },
+            // Для всех остальных (en по умолчанию нет в объекте, добавим логику ниже)
+    'default': {
+        btn: 'Get it on AppGallery',
+        storeUrl: 'https://appgallery.huawei.com/app/C117152235'
+    }
         };
 
-        const userLang = navigator.language.split('-')[0]; 
-        if (translations[userLang]) {
-            document.getElementById('message').innerText = translations[userLang].message;
-            document.getElementById('details-link').innerText = translations[userLang].details;
-            document.getElementById('btn-main').innerText = translations[userLang].btn;
-            document.getElementById('apk-link').innerText = translations[userLang].apk;
+                const userLang = navigator.language.split('-')[0]; 
+        const langData = translations[userLang] || null;
+
+        if (langData) {
+            document.getElementById('message').innerText = langData.message;
+            document.getElementById('details-link').innerText = langData.details;
+            document.getElementById('btn-main').innerText = langData.btn;
+            document.getElementById('btn-main').href = langData.storeUrl;
+            document.getElementById('apk-link').innerText = langData.apk;
+        } else {
+            // Если языка нет в списке (English и др.), ставим AppGallery как основной
+            document.getElementById('btn-main').innerText = 'Explore it on AppGallery';
+            document.getElementById('btn-main').href = 'https://appgallery.huawei.com/app/C117152235';
         }
+
+        // Раскомментируем и обновим ссылку в блоке "другие магазины" для всех
+        // Чтобы RuStore был доступен даже иностранцам (как запасной вариант)
+        const otherStores = document.querySelector('.other-stores');
+        const ruStoreLink = document.createElement('a');
+        ruStoreLink.href = "https://www.rustore.ru/catalog/app/com.fedordich.pocketgroove";
+        ruStoreLink.className = "store-link";
+        ruStoreLink.innerText = "RuStore";
+        
+        // Вставляем RuStore перед ссылкой на APK, если текущий стор - AppGallery
+        if (document.getElementById('btn-main').href.includes('huawei')) {
+            otherStores.insertBefore(ruStoreLink, document.getElementById('apk-link'));
+        }
+
+        
     </script>
 </body>
 </html>
